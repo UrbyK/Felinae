@@ -1,12 +1,12 @@
 <?php
-include './includes/dbh.inc.php';
+    include './includes/dbh.inc.php';
 
-function template_header($title){
-    include_once('./header.php');
-}
+    function template_header($title){
+        include_once('./header.php');
+    }
 
-function template_footer(){
-    include_once('./footer.php');
-}
+    function template_footer(){
+        include_once('./footer.php');
+    }
 
 ?>

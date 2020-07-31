@@ -1,2 +1,3 @@
-<h2>DOMOV</h2>
+<?=template_header('Home')?>
 
+    <h1>Nova Izbira</h1>
