@@ -31,7 +31,6 @@
                 }
                 elseif($count == 1){
                     $city_id = $stmt->fetch(PDO::FETCH_COLUMN);
-                    echo $city_id;
                 }
                 else{
                     echo "Napaka pri vnosov podatkov!";
@@ -39,16 +38,15 @@
                     exit();
                 }
                                 
-                $query = "INSERT INTO account(username, password, firstName, lastName, email, phoneNumber, address, city_id) 
-                        VALUES(?,?,?,?,?,?,?,?)";
+                $query = "INSERT INTO account(username, email, password, firstName, lastName, phoneNumber, address, city_id) 
+                        VALUES('?','?','?','?','?','?','?','?')";
                 $stmt = $pdo->prepare($query);
-                $stmt->execute([$username, $password, $fname, $lname, $email, $phone, $address, $city_id]);
+                $stmt->execute([$username, $email, $password, $fname, $lname, $phone, $address, $city_id]);
 
                 unset($_SESSION['username']);
                 unset($_SESSION['email']);
                 unset($_SESSION['password']);
                 unset($_SESSION['confirm_password']);
-                
 
             }
             else {

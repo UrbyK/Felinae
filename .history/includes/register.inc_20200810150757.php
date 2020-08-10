@@ -13,7 +13,6 @@
         $postalCode = $_POST['postal_code'];
         $city = $_POST['city'];
         $country = $_POST['country'];
-        $city_id=null;
 
         if(!empty($username) && !empty($email) && !empty($password) && 
         (strlen($password)>=8) && ($password==$confirm_password)){
@@ -31,7 +30,6 @@
                 }
                 elseif($count == 1){
                     $city_id = $stmt->fetch(PDO::FETCH_COLUMN);
-                    echo $city_id;
                 }
                 else{
                     echo "Napaka pri vnosov podatkov!";
@@ -39,16 +37,11 @@
                     exit();
                 }
                                 
-                $query = "INSERT INTO account(username, password, firstName, lastName, email, phoneNumber, address, city_id) 
-                        VALUES(?,?,?,?,?,?,?,?)";
-                $stmt = $pdo->prepare($query);
-                $stmt->execute([$username, $password, $fname, $lname, $email, $phone, $address, $city_id]);
-
-                unset($_SESSION['username']);
-                unset($_SESSION['email']);
-                unset($_SESSION['password']);
-                unset($_SESSION['confirm_password']);
                 
+
+echo '<pre>';
+var_dump($_SESSION);
+echo '</pre>';
 
             }
             else {
@@ -61,8 +54,6 @@
             header('../index.php?page=register-user');
             exit();
         }
-
-
 
     }
 

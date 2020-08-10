@@ -40,15 +40,11 @@
                 }
                                 
                 $query = "INSERT INTO account(username, password, firstName, lastName, email, phoneNumber, address, city_id) 
-                        VALUES(?,?,?,?,?,?,?,?)";
+                        VALUES('?','?','?','?','?','?','?','?')";
                 $stmt = $pdo->prepare($query);
                 $stmt->execute([$username, $password, $fname, $lname, $email, $phone, $address, $city_id]);
 
-                unset($_SESSION['username']);
-                unset($_SESSION['email']);
-                unset($_SESSION['password']);
-                unset($_SESSION['confirm_password']);
-                
+
 
             }
             else {
