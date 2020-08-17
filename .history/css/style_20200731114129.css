@@ -1,0 +1,15 @@
+@import url('http://fonts.googleapis.com/css?family=Oxygen+Mono');
+@import url('https://fonts.googleapis.com/css?family=Damion|Neucha|Pacifico|Yellowtail&display=swap');
+
+
+body{
+    font-size: 16px;
+    font-family: ;
+}
+
+
+/* BANNER */
+.banner img{
+    width: 100%;
+    height: auto;
+}

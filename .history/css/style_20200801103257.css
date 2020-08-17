@@ -1,0 +1,64 @@
+@import url('http://fonts.googleapis.com/css?family=Oxygen+Mono');
+@import url('https://fonts.googleapis.com/css?family=Damion|Neucha|Pacifico|Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Nunito&family=Overlock&family=Source+Sans+Pro&display=swap');
+
+body{
+    padding: 0;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.125em;
+  
+    font-family: 'Nunito', 'Source Sans Pro', sans-serif;
+    background-color: #ececec;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Overlock', 'Crimson Text', cursive, serif;
+    color: #1b9bff;
+    font-weight: 550;
+    line-height: 1.125em;
+}
+
+h1{
+    font-size: 36px;
+}
+h2{
+    font-size: 32px;
+}
+h3{
+    font-size: 28px;
+}
+h4{
+    font-size: 24px;
+}
+h5{
+    font-size: 20px;
+}
+h6{
+    font-size: 16px;
+}
+/* BANNER */
+.banner img{
+    width: 100%;
+    height: auto;
+}
+
+/*NAVBAR*/
+.navbar{
+    background-color: #353535;
+    font-size: 18px;
+}
+
+.navbar-brand{
+    font-size: 24px;
+    font-family: 'Overlock';
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(27,155,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  }
+
+  .custom-toggler, .navbar-toggler {
+    border-color: rgb(27, 155, 255);
+    border-radius: 2px;
+  } 

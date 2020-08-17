@@ -1,0 +1,18 @@
+@import url('http://fonts.googleapis.com/css?family=Oxygen+Mono');
+@import url('https://fonts.googleapis.com/css?family=Damion|Neucha|Pacifico|Yellowtail&display=swap');
+
+
+body{
+    padding: 0;
+    margin: 0 auto;
+    font-size: 16px;
+    font-family: 'Josefin Slab', Helvetica, Palatino, Verdana, sans-serif;
+    background-color: #efefef;
+}
+
+
+/* BANNER */
+.banner img{
+    width: 100%;
+    height: auto;
+}
