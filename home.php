@@ -6,7 +6,7 @@ echo '<pre>';
 var_dump($_SESSION);
 echo '</pre>';
 ?>
-
+<div class="row">
     <h1>Nova Izbira 48</h1>
 <p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean non ante dui. Ut erat neque, eleifend id tellus vitae, viverra hendrerit tellus. Sed ultrices auctor mauris, at lobortis tellus euismod ut. Phasellus at tincidunt sem. Nunc a consequat libero. In maximus massa eget diam hendrerit, eget lobortis elit congue. Vivamus eget laoreet tellus. Ut luctus nisi et faucibus porttitor. Donec in eros blandit, pretium nulla sed, sagittis tortor.
@@ -23,3 +23,6 @@ Curabitur id velit id magna euismod placerat. Aenean ornare arcu justo, sit amet
 <p>
 Proin nec magna dictum, rhoncus lorem vitae, aliquet urna. Vivamus sed odio metus. Vestibulum sit amet tortor vitae velit aliquam vehicula ut eget mi. Curabitur gravida laoreet quam, vitae lobortis nulla ultrices nec. Fusce purus felis, pharetra euismod tincidunt eget, luctus in ligula. Sed quis neque condimentum, mollis velit at, vehicula lectus. Nunc tincidunt, urna eget sagittis eleifend, libero dui efficitur quam, et ullamcorper felis magna a arcu. Aenean ac blandit odio. Quisque bibendum fringilla felis. Pellentesque laoreet urna vel dolor scelerisque, et suscipit purus convallis. Quisque tempor lacus volutpat finibus maximus. Pellentesque varius, nulla non consequat aliquam, risus elit ultrices nulla, et fringilla sem risus id nibh. Cras eget justo dapibus dolor tristique auctor eu ut nulla. 
 </p>
+</div>
+
+<?=template_footer()?>
