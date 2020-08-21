@@ -5,7 +5,7 @@ $(function(){
     // passes on every "a" tag 
     $(".navbar a").each(function() {
             // checks if its the same on the address bar
-        if(url === (this.href)) { 
+        if(url == (this.href)) { 
             $(this).closest("li").addClass("active");
         }
     });

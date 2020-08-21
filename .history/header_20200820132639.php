@@ -21,6 +21,9 @@
 
         <script src="./js/active-menu.js" crossorigin="anonymous"></script>
 
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
         <!-- Custom CSS -->
         <link rel="stylesheet" href="./css/style.css"/>
 
