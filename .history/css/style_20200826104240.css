@@ -1,0 +1,249 @@
+@import url('http://fonts.googleapis.com/css?family=Oxygen+Mono');
+@import url('https://fonts.googleapis.com/css?family=Damion|Neucha|Pacifico|Yellowtail&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Nunito&family=Overlock&family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+body{
+    padding: 0;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.125em;
+  
+    font-family: 'Nunito', 'Source Sans Pro', sans-serif;
+    background-color: #ececec;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Overlock', 'Crimson Text', cursive, serif;
+    color: #1b9bff;
+    font-weight: 550;
+    line-height: 1.125em;
+}
+
+h1{
+    font-size: 36px;
+}
+h2{
+    font-size: 32px;
+}
+h3{
+    font-size: 28px;
+}
+h4{
+    font-size: 24px;
+}
+h5{
+    font-size: 20px;
+}
+h6{
+    font-size: 16px;
+}
+
+/*======CONTAINER/CONTAINRE-FLUID======*/
+.container-fluid{
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    align-content: center;
+    background-color: #e4e4e4;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@media all and (min-width: 1300px){
+    .container-fluid{
+      max-width: 85%;
+    }
+}
+
+/*================BANNER=================== */
+.banner img{
+    width: 100%;
+    height: auto;
+}
+
+/*=================NAVBAR===================*/
+.navbar{
+    background-color: rgb(53,53,53);
+    font-size: 18px;
+    font-weight: 600;
+    max-height: 50px;
+}
+
+.navbar-brand{
+    font-size: 24px;
+    font-family: 'Love Ya Like A Sister','Overlock';
+    font-weight: 800;
+
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(27,155,255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-toggler, .navbar-toggler {
+    border-color: rgb(27, 155, 255);
+    border-width: 2px;
+} 
+
+.active{
+    background-color: #FAFAFA;
+    border-radius: 3px;
+}
+.navbar-nav .nav-item{
+    border-right: 2px solid #888;
+}
+
+
+/*REGISTER/LOGIN FORM*/
+
+.my-form .hint{
+    font-size: 10px;
+}
+
+
+/* IMAGE PREVIEW*/
+.form-div {
+    margin-top: 100px;
+    border: 1px solid #e0e0e0; 
+}
+#imageDisplay { 
+    display: block; 
+    height: 210px; 
+    width: auto; 
+    margin: 0px auto; 
+    border-radius: 50%; 
+}
+.img-placeholder {
+  width: 60%;
+  color: white;
+  height: 100%;
+  background: black;
+  opacity: .7;
+  height: 210px;
+  border-radius: 50%;
+  z-index: 2;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
+}
+.img-placeholder h4 {
+  margin-top: 40%;
+  color: white;
+}
+.img-div:hover .img-placeholder {
+  display: block;
+  cursor: pointer;
+}
+
+
+/*===========HOVBOX=============*/
+
+
+/* PRODUCT */
+
+.product {
+	display: flex;
+  padding: 40px 25px 40px 0px;
+}
+
+.product img{
+  max-width: 100%;
+  margin: auto;
+  border: 2px solid #aaa;
+  border-radius: 50px;
+}
+
+.product-info{
+  margin: auto 0;
+  padding-right: 5%;
+  padding-bottom: 55px;
+  background-color: #efefef;
+}
+
+.product-info h1 {
+	font-size: 34px;
+	font-weight: normal;
+	margin: 0;
+  padding: 20px 0 10px 0;
+  color: #1b9bff;
+  font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.product-info .price {
+	display: block;
+	font-size: 22px;
+}
+
+.product-info form {
+	display: flex;
+	flex-flow: column;
+  margin: 40px 0;
+}
+
+.product-info form input, 
+.card-btn form input{
+  max-width: 250px;
+  width: 100%;
+}
+
+.product-info form input[type="number"], 
+.card-btn form input[type="number"],
+.cart form input[type="number"] {
+  width: 100%;
+	padding: 10px;
+	margin-bottom: 15px;
+	border: 1px solid #aaa;
+	color: #555555;
+  border-radius: 5px;
+  -moz-appearance: textfield;
+}
+
+.product-info form input[type="submit"], 
+.card-btn form input[type="submit"] {
+	background-color: #1b9bff;;
+	border: 0;
+	color: #FFFFFF;
+	width: 100%;
+	padding: 12px 0;  
+	text-transform: uppercase;
+	font-size: 14px;
+	font-weight: bold;
+	border-radius: 5px;
+  cursor: pointer;
+
+}
+.product-info form input[type="submit"]:hover, 
+.card-btn form input[type="submit"]:hover {
+	background-color: #1a5f94;;
+}
+
+
+
+/* PRODUCTS */
+
+.product-item {
+    background-color: #fff;
+    border: 1px solid black;
+}
+
+.product-name{
+    font-size: 16px;
+    /*padding-top: 15px;*/
+    font-weight: bold;
+    color: #1b9bff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.product-name:hover{
+  color: #1a5f94;
+}
+
+.price{
+  font-weight: bold;
+  font-size: 18px;
+  color: #3f3f3f;
+
+}
