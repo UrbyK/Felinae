@@ -21,7 +21,7 @@
         $discount = $_POST['discount'];
         
         
-        if(empty($_POST['quantity']) && !isset($_POST['quantity'])){
+        if(empty($_POST['quantity']) || !isset($_POST['quantity'])){
             $quantity = $sku;
         }
 
