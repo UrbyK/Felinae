@@ -7,15 +7,20 @@
     text-decoration: none;
     list-style: none;
 }
+html, body{
+  margin: 0;
+  height: 100%;
+}
 
 body{
     padding: 0;
     margin: 0 auto;
     font-size: 16px;
     line-height: 1.125em;
-  
     font-family: 'Nunito', 'Source Sans Pro', sans-serif;
     background-color: #ececec;
+    display: flex;
+    flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -43,7 +48,16 @@ h5{
 h6{
     font-size: 16px;
 }
+
+
 /* BANNER */
+
+@media all and (max-width: 800px){
+  .banner{
+     display: none;
+  }
+}
+
 .banner img{
     width: 100%;
     height: auto;
@@ -79,6 +93,131 @@ h6{
   }
 .navbar-nav .nav-item{
     border-right: 2px solid #888;
+}
+
+/*=======FOOTER=========*/
+footer {
+  background: #535355;
+  background: -webkit-linear-gradient(63deg, #777777, #222222);
+  background: linear-gradient(63deg, #777777, #222222);
+  color: white;
+  height: auto;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer a {
+  color: #fefefe;
+  font-size: 14px;
+  transition-duration: 0.2s;
+}
+
+footer a:hover {
+  color: #1b9bff;
+  text-decoration: none;
+}
+
+.copy {
+  font-size: 12px;
+  padding: 10px;
+  border-top: 1px solid #aaa;
+}
+
+.footer-wrapper {
+  padding-top: 2em;
+  color: white;
+}
+
+
+/*social icons*/
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+/* footer social icons */
+
+.social-network a.icoFacebook:hover {
+  background-color: #3B5998;
+}
+
+.social-network a.icoLinkedin:hover {
+  background-color: #007bb7;
+}
+
+.social-network a.icoYoutube:hover {
+    background-color: #FF0000;
+}
+
+.social-network a.icoTwitter:hover {
+    background-color: #00aced;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoLinkedin:hover i,
+.social-network a.icoYoutube:hover i,
+.social-network a.icoTwitter:hover i{
+  color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+  color: #44BCDD;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 38px;
+  height: 38px;
+  font-size: 24px;
+  color: #353535;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.social-circle li a:hover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  -ms-transition: all 0.6s;
+  transition: all 0.6s;
+  color: #fff;
+}
+
+.social-circle i {
+  color: #353535;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
+}
+/* backgounf of icons when displayed */
+.social-network a {
+  background-color: #f9f9f9;
 }
 
 
@@ -320,12 +459,23 @@ input[type=submit]:disabled{
   background-color: #346081;
 }
 
-.product img{
+.product-picture{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-picture img{
+  align-items: center;
+  justify-content: center;
   max-width: 100%;
   margin: auto;
   border: 2px solid #aaa;
+  max-height: 650px;
   /*border-radius: 50px;*/
 }
+
+
 
 .product-info{
   margin: auto 0;
@@ -437,4 +587,59 @@ li .discount{
 }
 
 
-/*======FOOTER======*/
+/*=========COMMENTS=========*/
+.hide {
+  display: none;
+}
+
+.clear {
+  float: none;
+  clear: both;
+}
+
+.rating {
+  width: 190px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: center;
+  position: relative;
+  font-size: 30px;
+}
+
+.rating > label {
+  float: right;
+  display: inline;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 1.1em;
+  cursor: pointer;
+  color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+  color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: #009900;
+}
+
+.btn-submit{
+  width: 150px;
+}
+
+.review-content{
+  white-space: pre-wrap;
+}
+.checked{
+  color: #009900;
+}

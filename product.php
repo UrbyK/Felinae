@@ -25,14 +25,15 @@
 <?=template_header('Product')?>
 
 <div class="row"> 
-    <div class="col-12 col-sm-5 col-md-6 col-lg-5 col-xl-4">
+    <div class="col-12 col-sm-5 col-md-6 col-lg-5 col-xl-4 product-picture">
+        <ol class="carousel-indicators">
+            <?php for($i = 0; $i < count($images); $i++): ?>
+            <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
+            <?php endfor; ?>
+        </ol>
         <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
 
-            <ol class="carousel-indicators">
-                <?php for($i = 0; $i < count($images); $i++): ?>
-                <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
-                <?php endfor; ?>
-            </ol>
+            
 
             <div class="carousel-inner">
                 <?php foreach($images as $key => $image): 
@@ -46,15 +47,16 @@
                 <?php endforeach; ?>
             </div>
 
-            <a class="carousel-control-prev carousel-control" href="#carouselIndicators" role="button" data-slide="prev">
+            
+        </div>
+        <a class="carousel-control-prev carousel-control" href="#carouselIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next carousel-control" href="#carouselIndicators" role="button" data-slide="next">
+        </a>
+        <a class="carousel-control-next carousel-control" href="#carouselIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-            </a>
-        </div>
+        </a>
     </div>
 
     <div class="col-12 col-sm-7 col-md-6 col-lg-7 col-xl-8 product-info">
@@ -110,19 +112,80 @@
         <div class="container">
             <h2 class="segmant-name">Opis</h2>
             <hr class="devider">
-            <div class="description whitespace">
-               <?=$product['content']?>
-            </div>
+            <div class="description whitespace"><?=$product['content']?></div>
         </div>  
     </div>
 
 </div>
 
+<h1>Komentarji</h1>
 <hr class="page-division"/>
+<div class="row">
+    <div class="col-12">
+        <div class="form-group shadow-textarea">
+            <form method="post" action="./index.php?page=includes/review-insert.inc">
+                <input type="hidden" name="product_id" id="product_id" value="<?=$_GET['id']?>">
+                <input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION['user_id']?>">
+                <div class="rating">
+                    <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" />
+                    <label for="star5">☆</label>
+                    <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" />
+                    <label for="star4">☆</label>
+                    <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" />
+                    <label for="star3">☆</label>
+                    <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" />
+                    <label for="star2">☆</label>
+                    <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
+                    <label for="star1">☆</label>
+                    <div class="clear"></div>
+                </div>
+                <div class="form-group basic-textarea rounded-corners">
+                    <textarea class="form-control" name="comment" id="exampleFormControlTextarea345" rows="3" placeholder="Napišite komentar..." maxlength="255" onkeyup="countChar(this)" required></textarea>
+                    <span id="charNum" class="text-right">Na voljo je še: 255 znakov.</span>
+                    <div class="col-md-3 offset-md-2 float-right float-sm-right form-group">
+                        <button type="submit" name="Submit" class="btn btn-primary btn-submit" id="comment_ins">Dodaj</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
 
 <div class="row">
 
+    <?php $product_id = $_GET['id'];
+    $comments = get_review_by_procuct($product_id);
+    foreach($comments as $comment): ?>
+    <div class="col-12 col-md-6 card">
+        <div class="card-body">
+            <div class="review-meta">
+                <?=get_username($comment['account_id'])[0]?> @ <?=$comment['createdAt']?>   
+                <div class="comment-meta">
+                    <?php for($i=0; $i<5; $i++):
+                        if($i<$comment['rating']): ?>
+                            <span class="fa fa-star checked"></span>
+                        <?php else: ?>
+                            <span class="fa fa-star"></span>
+                        <?php endif; endfor; ?>
+                    </div>
+                <hr>
+            </div>
+            <div class="review-content"><?=$comment['comment']?></div>
+        </div>
+    </div>
+    <?php endforeach; ?>
 </div>
 
-
 <?=template_footer()?>
+
+<script>
+    function countChar(val) {
+        var len = val.value.length;
+        if (len >= 256) {
+            val.value = val.value.substring(0, 255);
+        } else {
+            $('#charNum').text('Na voljo je še: ' + (255 - len) + ' znakov.');
+        }
+    };
+</script>
