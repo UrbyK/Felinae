@@ -46,9 +46,28 @@
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php"><i class="fa fa-home" aria-hidden="true"></i> Domov <span class="sr-only">(current)</span></a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.php?page=home">Link</a>
+                        <a class="nav-link" href="./index.php?page=products">Izdelki</a>
                     </li>
+
+                    <li class="nav-item dropdown user-dropdown">
+                        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Uporabnik</a>
+                        <div class="dropdown-menu">
+                            
+                            <?php if(empty($_SESSION['logged_in'])): ?>
+                                <a class="dropdown-item" href="./index.php?page=login" title="Login"><i class="fa fa-sign-in-alt"></i></i> Prijava</a>
+                                <a class="dropdown-item" href="./index.php?page=register-user" title="Register">Registracija</a>
+                            <?php endif; ?>
+
+                            <?php if(user_login_status()): ?>
+                                <a class="dropdown-item" href="./index.php?page=logout">Oddjava</a>
+                                <a class="dropdown-item" href="./index.php?page=profile" title="Profile">Profil</a>
+                            <?php endif; ?>
+
+                        </div>
+                    </li>
+<!--
                     <li class="nav-item dropdown" >
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Dropdown
@@ -60,25 +79,14 @@
                         <a class="dropdown-item" href="#">Something else here</a>
                         </div>
                     </li>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?page=profile">Profil</a>
-                    </li>                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?page=register-user">Registracija</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?page=login">Prijava</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?page=logout">Odjava</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.php?page=products">Izdelki</a>
-                    </li>
+                            -->
+                            
+                    <?php if(is_admin()): ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./index.php?page=product-add">Dodaj</a>
                     </li>
+
+                    <?php endif; ?>
 
                 </ul>
 
@@ -86,6 +94,14 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                 </form>
+
+                <?php $num_items_in_cart = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;?>
+                <div class="link-icons">
+                    <a href="index.php?page=cart">
+                    <i class="fa fa-shopping-cart"></i>
+                    <span><?=$num_items_in_cart?></span>
+                    </a>
+                </div>
                 
             </div>
         </nav>

@@ -1,6 +1,6 @@
 <?php 
     // number of displayed products per page
-    $num_of_product_per_page = 100;
+    $num_of_product_per_page = 15;
     // URL this will appear as index.php?page=products&p=1, index.php?page=products&p=2 ...
     $current_page = isset($_GET['p']) && is_numeric($_GET['p']) ? (int)$_GET['p'] : 1;
     // select products by latest
@@ -21,8 +21,8 @@
 <div class="row">
     <?php foreach($products as $product):
         $retail_price = retail_price($product['id']); 
-        if($product['publishedAt'] <= date('Y-m-d H:i:s')):
-        ?>
+
+        if($product['publishedAt'] <= date('Y-m-d H:i:s')): ?>
     
         <div class="card products-preview col-12 col-sm-7 col-md-4 col-lg-3 col-xl-2"> 
             <div class="hvrbox">
@@ -50,7 +50,15 @@
             
             <div class="card-body products-preview-body">
                 <ul>
+                <?php for($i=0; $i<5; $i++):
+                        if($i<average_rating($product['id'])): ?>
+                            <span class="fa fa-star checked"></span>
+                        <?php else: ?>
+                            <span class="fa fa-star"></span>
+                        <?php endif;
+                     endfor; ?>
                     <li><a href="./index.php?page=product&id=<?=$product['id']?>"><span class="product-name"><?=$product['title']?></span></a></li><br>
+
                         
                     <?php if($product['startsAt'] <= date('Y-m-d H:i:s') && date('Y-m-d H:i:s') <= $product['endsAt']): ?>
                         <li>
@@ -74,7 +82,7 @@
                 <?php endif; ?>
                 <form action="./index.php?page=cart" method="post">
                     <input type="number" name="quantity" value="0" min="1" max="<?=$product['quantity']?>" placeholder="Količina" required>
-                    <input type="hidden" name="product_" value="<?=$product['id']?>">
+                    <input type="hidden" name="product_id" value="<?=$product['id']?>">
                     <input type="submit" class="insert-cart" value="Dodaj v košarico" <?php if($product['quantity'] == 0){?> disabled <?php }?>>
                 </form>
 

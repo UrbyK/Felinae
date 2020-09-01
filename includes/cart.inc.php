@@ -80,7 +80,7 @@
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         // calculate subtotal
         foreach ($products as $product) {
-            $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
+            $subtotal += (float)retail_price($product['id']) * (int)$products_in_cart[$product['id']];
         }
     }
 

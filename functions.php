@@ -81,4 +81,34 @@
         return $user;
     }
 
+    function items_in_cart() {
+        $items = $_SESSION['cart'];
+        $num_of_items = 0;
+        foreach($items as $item) {
+            $num_of_items += $item[1];
+        }
+        return $num_of_items;
+    }
+
+
+    function average_rating($product_id) {
+        $pdo = pdo_connect_mysql();
+        $query  = "SELECT rating FROM review WHERE product_id = ?";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$product_id]);
+        $items = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $i=0;
+        $sum = 0;
+        $average = 0;
+        foreach($items as $item) {
+            if($item['rating'] > 0){
+                
+                $i++;
+                $sum += $item['rating'];
+            }        
+        }
+        if($i!=0) $average = $sum / $i;
+        return $average;
+    }
+
 ?>

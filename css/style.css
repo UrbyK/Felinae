@@ -402,7 +402,7 @@ color: #1a5f94;
 
 /* CARD */
 .products-preview{
-  max-height: 450px;
+  height: 500px;
 }
 
 .products-preview-body{

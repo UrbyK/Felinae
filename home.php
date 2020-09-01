@@ -1,3 +1,8 @@
+<?php 
+print_r($_SESSION);
+
+?>
+
 <?=template_header('Home')?>
 <div class="row">
     <h1>Nova Izbira 48</h1>

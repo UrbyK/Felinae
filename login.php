@@ -13,7 +13,7 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="username">Uporabnik</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" name="username" id="username" placeholder="Uporaabnik/elektronski naslov" required>
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Uporabnik/elektronski naslov" required>
                                 </div>
                             </div>
                             <div class="form-group row">
