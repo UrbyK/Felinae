@@ -31,20 +31,23 @@
             <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
             <?php endfor; ?>
         </ol>
+
         <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-
-            
-
             <div class="carousel-inner">
-                <?php foreach($images as $key => $image): 
-                    if($key === array_key_first($images)):?>
-                    <div class="carousel-item active">
-                    <?php else: ?>
-                    <div class="carousel-item">
+                <?php if($images):
+                    foreach($images as $key => $image): 
+                        if($key === array_key_first($images)):?>
+                        <div class="carousel-item active">
+                        <?php else: ?>
+                        <div class="carousel-item">
+                        <?php endif; ?>
+                            <img class="d-block w-100" src="<?=$image['image']?>" alt="<?=$image['caption']?>">
+                        </div>
+                    <?php endforeach;
+                    else: ?>
+                    <img src="https://via.placeholder.com/450x500" alt="placeholder-image"
+                            class="d-block w-100">
                     <?php endif; ?>
-                        <img class="d-block w-100" src="<?=$image['image']?>" alt="<?=$image['caption']?>">
-                    </div>
-                <?php endforeach; ?>
             </div>
 
             
@@ -167,7 +170,8 @@
                             <span class="fa fa-star checked"></span>
                         <?php else: ?>
                             <span class="fa fa-star"></span>
-                        <?php endif; endfor; ?>
+                        <?php endif;
+                     endfor; ?>
                     </div>
                 <hr>
             </div>
