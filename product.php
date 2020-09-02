@@ -25,101 +25,110 @@
 <?=template_header('Product')?>
 
 <div class="row"> 
-    <div class="col-12 col-sm-5 col-md-6 col-lg-5 col-xl-4 product-picture">
-        <ol class="carousel-indicators">
-            <?php for($i = 0; $i < count($images); $i++): ?>
-            <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
-            <?php endfor; ?>
-        </ol>
-
-        <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-                <?php if($images):
-                    foreach($images as $key => $image): 
-                        if($key === array_key_first($images)):?>
-                        <div class="carousel-item active">
-                        <?php else: ?>
-                        <div class="carousel-item">
-                        <?php endif; ?>
-                            <img class="d-block w-100" src="<?=$image['image']?>" alt="<?=$image['caption']?>">
-                        </div>
-                    <?php endforeach;
-                    else: ?>
-                    <img src="https://via.placeholder.com/450x500" alt="placeholder-image"
-                            class="d-block w-100">
-                    <?php endif; ?>
-            </div>
-
-            
-        </div>
-        <a class="carousel-control-prev carousel-control" href="#carouselIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next carousel-control" href="#carouselIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+    <div class="col-12 col-sm-5 col-md-6 col-lg-5 col-xl-4">
+        <div class="col-12">
+            <div class="image-top">
+                <div class=" product-picture">
+                    <ol class="carousel-indicators">
+                        <?php for($i = 0; $i < count($images); $i++): ?>
+                        <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
+                        <?php endfor; ?>
+                    </ol>
+                    
+                    <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <?php if($images):
+                                foreach($images as $key => $image): 
+                                    if($key === array_key_first($images)):?>
+                                    <div class="carousel-item active">
+                                    <?php else: ?>
+                                    <div class="carousel-item">
+                                    <?php endif; ?>
+                                        <img class="d-block w-100" src="<?=$image['image']?>" alt="<?=$image['caption']?>">
+                                    </div><!-- carousel-item -->
+                                <?php endforeach;
+                                else: ?>
+                                <img src="https://via.placeholder.com/450x500" alt="placeholder-image"
+                                        class="d-block w-100">
+                                <?php endif; ?>
+                        </div> <!-- carousel-inner -->
+                        
+                    </div><!-- carousel slide -->
+                    <a class="carousel-control-prev carousel-control" href="#carouselIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next carousel-control" href="#carouselIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div><!-- product-picture -->
+            </div><!-- image-top -->
+        </div><!-- col-12 -->
+    </div><!-- col-12 col-sm-5 col-md-6 col-lg-5 col-xl-4 -->
 
     <div class="col-12 col-sm-7 col-md-6 col-lg-7 col-xl-8 product-info">
-        <h1><?=$product['title']?></h1><br/>
-        <div class="product-price">
-            <?php if($product['startsAt'] <= date('Y-m-d H:i:s') && date('Y-m-d H:i:s') <= $product['endsAt']): ?>
-                
-            <ul>
-                <li class="sales-date"><?=date('j.n', strtotime($product['startsAt']))?> - <?=date('j.n', strtotime($product['endsAt']))?></li>
-                <li></li>
+        <div class="col-12">
+            <h1><?=$product['title']?></h1><br/>
+            <div class="product-price">
+                <?php if($product['startsAt'] <= date('Y-m-d H:i:s') && date('Y-m-d H:i:s') <= $product['endsAt']): ?>
+                    
+                <ul>
+                    <li class="sales-date"><?=date('j.n', strtotime($product['startsAt']))?> - <?=date('j.n', strtotime($product['endsAt']))?></li>
+                    <li></li>
 
-                <li class="price"><span class="old-price"><?=$product['price']?>&euro;</span>
-                    <span class="discount">-<?=$product['discount']?>%</span>
-                </li>
-                <li class="retail-price price"><?=$retail_price?>&euro;</li>
-            </ul>
-            <?php else: ?>
-               <span class="price"><?=$retail_price?>&euro;</span>
-            <?php endif; ?>
-        </div>
-        <!-- Form for adding product to cart -->
-        <div class="card-btn">
-            <form action="./index.php?page=cart" method="post">
-            <?php if($product['quantity'] == 0): ?>
-                <span class="quantity-limit text-danger">Zmanjkalo zalog!</span>
-            <?php else: ?>
-                <span class="quantity-limit "><?=$product['quantity']?>/<?=$product['sku']?></span>
-            <?php endif; ?>
-                <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Količina" required>
-                <input type="hidden" name="product_id" value="<?=$product['id']?>">
-                <input type="submit" class="insert-cart" value="Dodaj v košarico" <?php if($product['quantity'] == 0){?> disabled <?php }?>>
-            </form>
-        </div>
+                    <li class="price"><span class="old-price"><?=$product['price']?>&euro;</span>
+                        <span class="discount">-<?=$product['discount']?>%</span>
+                    </li>
+                    <li class="retail-price price"><?=$retail_price?>&euro;</li>
+                </ul>
+                <?php else: ?>
+                <span class="price"><?=$retail_price?>&euro;</span>
+                <?php endif; ?>
+            </div><!-- product-price -->
+            <!-- Form for adding product to cart -->
+            <div class="card-btn">
+                <form action="./index.php?page=cart" method="post">
+                <?php if($product['quantity'] == 0): ?>
+                    <span class="quantity-limit text-danger">Zmanjkalo zalog!</span>
+                <?php else: ?>
+                    <span class="quantity-limit "><?=$product['quantity']?>/<?=$product['sku']?></span>
+                <?php endif; ?>
+                    <input type="number" name="quantity" value="1" min="1" max="<?=$product['quantity']?>" placeholder="Količina" required>
+                    <input type="hidden" name="product_id" value="<?=$product['id']?>">
+                    <input type="submit" class="insert-cart" value="Dodaj v košarico" <?php if($product['quantity'] == 0){?> disabled <?php }?>>
+                </form>
+            </div><!-- card-btn -->
 
-        <!-- Description of product -->
-        <div class="container">
-            <div class="summary">
-                <h2 class="segmant-name">Povzetek</h2>
+            <!-- Description of product -->
+            <div class="container">
+                <div class="summary">
+                    <h2 class="segmant-name">Povzetek</h2>
+                    <hr class="devider">
+                    <?=$product['summary']?>
+                    <p>                
+                        <ul class="measurements">
+                            <?php if(!empty($product['weight'])): ?><li>Teža: <?=$product['weight']?>kg</li><?php endif; ?>
+                            <?php if(!empty($product['length'])): ?><li>Dolžina: <?=$product['length']?>cm</li><?php endif; ?>
+                            <?php if(!empty($product['width'])): ?><li>Širina: <?=$product['width']?>cm</li><?php endif; ?>
+                            <?php if(!empty($product['depth'])): ?><li>Višina: <?=$product['depth']?>cm</li><?php endif; ?>
+                        </ul>
+                    </p>
+
+                </div><!-- summary -->
+            </div><!-- container -->
+            
+            <br>
+
+            <div class="container">
+                <h2 class="segmant-name">Opis</h2>
                 <hr class="devider">
-                <?=$product['summary']?>
-                <p>                
-                    <ul class="measurements">
-                        <?php if(!empty($product['weight'])): ?><li>Teža: <?=$product['weight']?>kg</li><?php endif; ?>
-                        <?php if(!empty($product['length'])): ?><li>Dolžina: <?=$product['length']?>cm</li><?php endif; ?>
-                        <?php if(!empty($product['width'])): ?><li>Širina: <?=$product['width']?>cm</li><?php endif; ?>
-                        <?php if(!empty($product['depth'])): ?><li>Višina: <?=$product['depth']?>cm</li><?php endif; ?>
-                    </ul>
-                </p>
+                <div class="description whitespace"><?=$product['content']?></div>
+            </div><!-- container -->
+        </div><!-- col-12 -->
+    </div><!-- col-12 col-sm-7 col-md-6 col-lg-7 col-xl-8 product-info-->
 
-            </div>
-        </div><br>
-
-        <div class="container">
-            <h2 class="segmant-name">Opis</h2>
-            <hr class="devider">
-            <div class="description whitespace"><?=$product['content']?></div>
-        </div>  
-    </div>
-
-</div>
+</div><!-- row -->
 
 <h1>Komentarji</h1>
 <hr class="page-division"/>
@@ -141,19 +150,19 @@
                     <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" />
                     <label for="star1">☆</label>
                     <div class="clear"></div>
-                </div>
+                </div><!-- rating -->
                 <div class="form-group basic-textarea rounded-corners">
                     <textarea class="form-control" name="comment" id="exampleFormControlTextarea345" rows="3" placeholder="Napišite komentar..." maxlength="255" onkeyup="countChar(this)" required></textarea>
                     <span id="charNum" class="text-right">Na voljo je še: 255 znakov.</span>
                     <div class="col-md-3 offset-md-2 float-right float-sm-right form-group">
                         <button type="submit" name="Submit" class="btn btn-primary btn-submit" id="comment_ins">Dodaj</button>
-                    </div>
-                </div>
+                    </div><!-- col-md-3 offset-md-2 float-right float-sm-right form-group -->
+                </div><!-- form-group basic-textarea rounded-corners -->
 
             </form>
-        </div>
-    </div>
-</div>
+        </div><!-- form-group shadow-textarea -->
+    </div><!-- col-12 -->
+</div><!-- row -->
 
 <div class="row">
 
@@ -172,14 +181,14 @@
                             <span class="fa fa-star"></span>
                         <?php endif;
                      endfor; ?>
-                    </div>
+                </div><!-- comment-meta -->
                 <hr>
-            </div>
+            </div><!-- review-meta -->
             <div class="review-content"><?=$comment['comment']?></div>
-        </div>
-    </div>
+        </div><!-- card-body -->
+    </div><!-- col-12 col-md-6 card -->
     <?php endforeach; ?>
-</div>
+</div><!-- row -->
 
 <?=template_footer()?>
 
