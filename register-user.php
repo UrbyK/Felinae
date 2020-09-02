@@ -15,43 +15,43 @@
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="username" id="username" placeholder="Uporabniško ime" pattern=".{4,}" required>
                                     <span class="hint">Ime mora biti dolgo vsaj 4 znake.</span>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="email">Elektronska pošta<span class="required">*</span></label>
                                 <div class="col-md-6">
                                     <input type="email" class="form-control" name="email" id="email" placeholder="Elektronska pošta" required>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="password">Geslo<span class="required">*</span></label>
                                 <div class="col-md-6">
                                     <input type="password" pattern=".{8,}" class="form-control" name="password" id="password" placeholder="Geslo" required>
                                     <span class="hint">Geslo mora vsebovati najmanj 8 znakov!</span>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="confirm_password">Potrdite geslo<span class="required">*</span></label>
                                 <div class="col-md-6">
                                     <input type="password" class="form-control" name="confirm_password" id="confirm_password" placeholder="Potrdite geslo" required>
                                     <span id="message"></span>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
 
                             <div class="col-md-6 offset-md-4 float-right float-sm-right">
                                 <button type="submit" name="Submit" class="btn btn-primary" id="reg_btn" disabled="true">Naprej</button>
-                            </div>
+                            </div><!-- col-md-6 offset-md-4 float-right float-sm-right -->
 
                         </form>
-                    </div>
+                    </div><!-- card-body -->
 
                     <script src="./js/pass-match.js"></script>
 
                     <div class="card-footer">
                         Že imate račun? Prijavite se: <a href="./index.php?page=login">Prijava</a>.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> 
+                    </div><!-- card-footer -->
+                </div><!-- card user-form -->
+            </div><!-- col-sm-8 -->
+        </div><!-- row justify-content-center -->
+    </div><!-- my-form -->
+</div> <!-- container -->

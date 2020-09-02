@@ -44,9 +44,9 @@
                                 }
                                 ?>
                         </p>
-                    </div>
+                    </div><!-- hvrbox-layer_top hvrbox-layer_slideup -->
                 </a>
-            </div>
+            </div><!-- hvrbox -->
             
             <div class="card-body products-preview-body">
                 <ul>
@@ -72,7 +72,7 @@
                         <li><span class="price"><?=$retail_price?>&euro;</span></li>
                     <?php endif; ?>
                 </ul>
-            </div>
+            </div><!-- card-body products-preview-body -->
 
             <div class="card-btn">  
                 <?php if($product['quantity'] == 0): ?>
@@ -86,12 +86,12 @@
                     <input type="submit" class="insert-cart" value="Dodaj v košarico" <?php if($product['quantity'] == 0){?> disabled <?php }?>>
                 </form>
 
-            </div>
+            </div><!-- card-btn -->
 
-        </div>
+        </div><!-- card products-preview col-12 col-sm-7 col-md-4 col-lg-3 col-xl-2 -->
 
         <?php endif;
     endforeach; ?>
-</div>
+</div><!-- row -->
 
 <?=template_footer()?>

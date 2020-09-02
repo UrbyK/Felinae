@@ -26,39 +26,39 @@
                                 <label class="col-md-4 col-form-label text-md-right" for="fname">Ime<span class="required">*</span></label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="fname" id="fname" placeholder="Ime" required>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="lname">Priimek<span class="required">*</span></label>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="lname" id="lname" placeholder="Priimek" required>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="phoneNumber">Telefonska številka</label>
                                 <div class="col-md-6">
                                     <input type="tel" class="form-control" name="phoneNumber" id="phoneNumber" placeholder="000-000-000" pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}">
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
 
                             <div class="form-group row">
                                 <lable class="col-md-4 col-form-label text-md-right" for="address">Naslov<span class="required">*</span></lable>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="address" id="address" placeholder="Velika ulica, 4" required>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <lable class="col-md-4 col-form-label text-md-right" for="postalCode">Poštna številka<span class="required">*</span></lable>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="postalCode" id="postalCode" placeholder="1000" required>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
                             <div class="form-group row">
                                 <lable class="col-md-4 col-form-label text-md-right" for="city">Mesto<span class="required">*</span></lable>
                                 <div class="col-md-6">
                                     <input type="text" class="form-control" name="city" id="city" placeholder="Ljubljana" required>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->
 
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="country">Država<span class="required">*</span></label>
@@ -68,22 +68,22 @@
                                         <option value="<?=$item['id']?>"><?=$item['country']?></option>
                                     <?php endforeach; ?>
                                     </select>
-                                </div>
-                            </div>
+                                </div><!-- col-md-6 -->
+                            </div><!-- form-group row -->>
 
 
                             <div class="col-md-6 offset-md-4 float-right float-sm-right">
                                 <button type="submit" name="Submit" class="btn btn-primary" id="reg_btn">Registracija</button>
-                            </div>
+                            </div><!-- col-md-4 offset-md-4 float-right float-sm-right -->
 
                         </form>
-                    </div>
+                    </div><!-- card-body -->
 
                     <div class="card-footer">
                         Že imate račun? Prijavite se: <a href="./index.php?page=login">Prijava</a>.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    </div><!-- card-footer -->
+                </div><!-- card user-form -->
+            </div><!-- col-sm-8 -->
+        </div><!-- row justify-content-center -->
+    </div><!-- my-form -->
+</div><!-- container -->

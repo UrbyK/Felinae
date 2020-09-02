@@ -11,16 +11,15 @@
                                 <li><a href="https://www.youtube.com" target="_blank" class="icoYoutube" title="Youtube"><i class="fa fa-youtube"></i></a></li>    
                                 <li><a href="https://twitter.com" target="_blank" class="icoTwitter" title="Twitter"><i class="fa fa-twitter"></i></a></li>
                             </ul>				
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="row">
-                        <div class="col-12 copy">
-                            <p class="text-center">&copy; Copyright 2020 - Felinae.  All rights reserved.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        </div><!-- col-12 -->
+                    </div> <!-- row text-center -->
+                </div><!-- container container-footer -->
+                <div class="row">
+                    <div class="col-12 copy">
+                        <p class="text-center">&copy; Copyright 2020 - Felinae.  All rights reserved.</p>
+                    </div><!--  col-12 copy-->
+                </div><!-- row -->
+            </div><!-- footer-wrapper -->
         </footer>
 
         
