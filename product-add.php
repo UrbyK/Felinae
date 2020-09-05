@@ -1,5 +1,7 @@
 <?php
-
+    if(!is_admin()){
+        header("Location: ./index.php");
+    }
 ?>
 
 <?=template_header("Product_insert")?>

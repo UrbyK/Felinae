@@ -1,10 +1,8 @@
-<?php
-function products_row($products){ ?>
+ <?php function template_products($products){ ?>
     <div class="row">
         <?php foreach($products as $product):
             $retail_price = retail_price($product['id']); 
-            if($product['publishedAt'] <= date('Y-m-d H:i:s')):
-            ?>
+            if($product['publishedAt'] <= date('Y-m-d H:i:s')): ?>
         
             <div class="card products-preview col-12 col-sm-7 col-md-4 col-lg-3 col-xl-2"> 
                 <div class="hvrbox">
@@ -32,6 +30,14 @@ function products_row($products){ ?>
                 
                 <div class="card-body products-preview-body">
                     <ul>
+                    <?php for($i=0; $i<5; $i++):
+                        if($i<average_rating($product['id'])): ?>
+                            <span class="fa fa-star checked"></span>
+                        <?php else: ?>
+                            <span class="fa fa-star"></span>
+                        <?php endif;
+                     endfor; ?>
+                 
                         <li><a href="./index.php?page=product&id=<?=$product['id']?>"><span class="product-name"><?=$product['title']?></span></a></li><br>
                             
                         <?php if($product['startsAt'] <= date('Y-m-d H:i:s') && date('Y-m-d H:i:s') <= $product['endsAt']): ?>
@@ -67,5 +73,4 @@ function products_row($products){ ?>
         endforeach; ?>
     </div><!-- row -->
 
-<?php }
-?>
+<?php } ?>

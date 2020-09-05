@@ -3,13 +3,19 @@
 
     include_once('./includes/search-functions.php');
     include_once('./includes/picture-upload.inc.php');
+    require_once('./products-form.php');
+    
+
+    /*function template_products($products) {
+        require_once('./products-form.php');
+    }*/
 
     function template_header($title) {
         include_once('./header.php');
     }
 
     function template_footer() {
-        include_once('./footer.php');
+        include_once './footer.php';
     }
 
     function user_login_status() {
@@ -109,6 +115,52 @@
         }
         if($i!=0) $average = $sum / $i;
         return $average;
+    }
+
+ 
+    function all_products(){
+        $pdo = pdo_connect_mysql();
+        $query = "SELECT * FROM product WHERE title LIKE '%?%'";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute(['test']);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }   
+        
+    function new_products(){
+        $pdo = pdo_connect_mysql();
+        $query ="SELECT * FROM product ORDER BY publishedAt DESC LIMIT 6";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function best_rated(){
+        $pdo = pdo_connect_mysql();
+        $query ="SELECT avg(rating), product_id FROM review GROUP BY product_id ORDER BY avg(rating) DESC LIMIT 6";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function get_product($id){
+        $pdo = pdo_connect_mysql();
+        $query ="SELECT * FROM product WHERE id = ?";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([$id]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+    function on_sale(){
+        $pdo = pdo_connect_mysql();
+        $query ="SELECT * FROM product WHERE ? BETWEEN startsAt AND endsAt;";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([date('Y-m-d H:i:s')]);
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
     }
 
 ?>

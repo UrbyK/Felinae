@@ -90,9 +90,9 @@
 
                 </ul>
 
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                <form method="GET" class="form-inline my-2 my-lg-0 search-area" action="./search.php">
+                    <input class="form-control mr-sm-2" type="text" name="search" placeholder="Iskanje..">
+                    <button class="btn btn-outline-success my-2 my-sm-0" name="search_btn" type="submit">Išči</button>
                 </form>
 
                 <?php $num_items_in_cart = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;?>
