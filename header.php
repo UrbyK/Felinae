@@ -56,13 +56,13 @@
                         <div class="dropdown-menu">
                             
                             <?php if(empty($_SESSION['logged_in'])): ?>
-                                <a class="dropdown-item" href="./index.php?page=login" title="Login"><i class="fa fa-sign-in-alt"></i></i> Prijava</a>
+                                <a class="dropdown-item" href="./index.php?page=login" title="Login"><i class="fa fa-sign-in"></i> Prijava</a>
                                 <a class="dropdown-item" href="./index.php?page=register-user" title="Register">Registracija</a>
                             <?php endif; ?>
 
                             <?php if(user_login_status()): ?>
-                                <a class="dropdown-item" href="./index.php?page=logout">Oddjava</a>
-                                <a class="dropdown-item" href="./index.php?page=profile" title="Profile">Profil</a>
+                                <a class="dropdown-item" href="./index.php?page=logout"><i class="fa fa-sign-out"></i> Oddjava</a>
+                                <a class="dropdown-item" href="./index.php?page=profile" title="Profile"><i class="fa fa-id-card"></i> Profil</a>
                             <?php endif; ?>
 
                         </div>

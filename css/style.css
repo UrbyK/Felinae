@@ -95,6 +95,25 @@ h6{
     border-right: 2px solid #888;
 }
 
+.navbar-collapse{
+  background-color: rgba(53, 53, 53, 0.80);
+}
+
+.dropdown-menu{
+  background-color: rgba(53, 53, 53, 0.80);
+  
+
+}
+
+.dropdown-menu .dropdown-item{
+  color: #009900;
+  font-size: 18px;
+  font-weight: 700;
+  border-bottom: 1px solid #888;
+  height: 75px;
+}
+
+
 /*=======FOOTER=========*/
 footer {
   background: #535355;
