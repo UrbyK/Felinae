@@ -1,5 +1,5 @@
 <?php
-    include './includes/cart.inc.php';
+    include './src/inc/cart.inc.php';
 ?>
 
 <?=template_header('Cart')?>

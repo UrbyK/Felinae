@@ -9,7 +9,7 @@
                         <h1 class="card-title">Prijava</h1>
                     </div><!-- card-title -->
                     <div class="card-body">
-                        <form method="post" action="./index.php?page=includes/login.inc" class="content">
+                        <form method="post" action="./index.php?page=src/inc/login.inc" class="content">
 
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="username">Uporabnik</label>

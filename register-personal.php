@@ -21,7 +21,7 @@
                         <h1 class="card-title">Registracija</h1>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="./index.php?page=includes/register.inc" class="content">
+                        <form method="post" action="./index.php?page=src/inc/register.inc" class="content">
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right" for="fname">Ime<span class="required">*</span></label>
                                 <div class="col-md-6">

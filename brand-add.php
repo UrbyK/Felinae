@@ -10,7 +10,7 @@
                         <h1 class="card-title">Blagovna znamka</h1>
                     </div><!-- card-heaaer -->
                     <div class="card-body">
-                        <form method="post" class="content" action="./index.php?page=includes/brand-insert.inc" enctype="multipart/form-data">
+                        <form method="post" class="content" action="./index.php?page=src/inc/brand-insert.inc" enctype="multipart/form-data">
                             <h2 class="segmant-name">Ime blagovne znamke</h2>
                             <hr/>
                             <div class="form-group">

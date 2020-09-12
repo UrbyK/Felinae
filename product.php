@@ -135,7 +135,7 @@
 <div class="row">
     <div class="col-12">
         <div class="form-group shadow-textarea">
-            <form method="post" action="./index.php?page=includes/review-insert.inc">
+            <form method="post" action="./index.php?page=src/inc/review-insert.inc">
                 <input type="hidden" name="product_id" id="product_id" value="<?=$_GET['id']?>">
                 <input type="hidden" name="user_id" id="user_id" value="<?=$_SESSION['user_id']?>">
                 <div class="rating">

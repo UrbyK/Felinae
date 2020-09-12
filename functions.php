@@ -1,8 +1,8 @@
 <?php
-    include './includes/dbh.inc.php';
+    include './src/inc/dbh.inc.php';
 
-    include_once('./includes/search-functions.php');
-    include_once('./includes/picture-upload.inc.php');
+    include_once('./src/inc/search-functions.php');
+    include_once('./src/inc/picture-upload.inc.php');
     require_once('./products-form.php');
     
 

@@ -14,7 +14,7 @@
                         <h1 class="card-title">Vnesi produkt</h1>
                     </div><!--card-header -->
                     <div class="card-body">
-                        <form method="post" class="content" action="./index.php?page=includes/product-insert.inc" enctype="multipart/form-data">
+                        <form method="post" class="content" action="./index.php?page=src/inc/product-insert.inc" enctype="multipart/form-data">
                             <h2 class="segmant-name">Opis izdelka</h2>
                             <hr/>
                             <div class="form-group">

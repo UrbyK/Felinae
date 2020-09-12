@@ -45,7 +45,7 @@
                         </form>
                     </div><!-- card-body -->
 
-                    <script src="./js/pass-match.js"></script>
+                    <script src="./src/js/pass-match.js"></script>
 
                     <div class="card-footer">
                         Že imate račun? Prijavite se: <a href="./index.php?page=login">Prijava</a>.

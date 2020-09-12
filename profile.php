@@ -120,7 +120,7 @@
                     type: 'POST',
                     data: 'fname=' + fname + '&lname=' + lname + '&phoneNumber=' + phoneNumber + '&address=' + address + 
                                 '&postalCode=' + postalCode + '&city=' + city + '&country=' + country,
-                    url: './includes/profile-update.inc.php',
+                    url: './src/inc/profile-update.inc.php',
                     success:function(data){
                         alert(data);
                     }  
