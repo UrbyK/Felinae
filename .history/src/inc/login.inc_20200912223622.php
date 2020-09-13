@@ -1,6 +1,6 @@
 <?php
     
-    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    if(isset($_SESSION["logged_in"]) && $_SESSION["logged_in"] === true){
         header("location: ./index.php");
         exit();
     }
@@ -18,7 +18,7 @@
                 $acc = $stmt->fetch();
                 if(password_verify($pass, $acc['password'])){
                     $_SESSION['user_id'] = $acc['id'];
-                    $_SESSION['loggedin'] = true;
+                    $_SESSION['logged_in'] = true;
                     if($acc['admin'] == 1){
                         $_SESSION['admin'] = true;
                     }
