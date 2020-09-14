@@ -55,7 +55,7 @@
                         <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i> Uporabnik</a>
                         <div class="dropdown-menu">
                             
-                            <?php if(empty($_SESSION['logged_in'])): ?>
+                            <?php if(!user_login_status()): ?>
                                 <a class="dropdown-item" href="./index.php?page=login" title="Login"><i class="fa fa-sign-in"></i> Prijava</a>
                                 <a class="dropdown-item" href="./index.php?page=register-user" title="Register">Registracija</a>
                             <?php endif; ?>

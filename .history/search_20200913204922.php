@@ -12,6 +12,7 @@
 
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+
     }
     else{
         header("Location: ./#");
@@ -19,7 +20,14 @@
     }
 
 
+
         template_header("Search");
         template_products($products);
         template_footer();
 ?>
+
+
+
+
+
+
