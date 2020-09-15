@@ -241,7 +241,11 @@ ul.social-network li {
 
 
 /*REGISTER/LOGIN FORM*/
-
+/*
+.my-form .form-control:valid{
+  border: solid 2px #009900;
+}
+*/
 .my-form .hint{
     font-size: 10px;
 }
