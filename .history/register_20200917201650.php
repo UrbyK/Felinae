@@ -33,7 +33,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-4 col-form-label text-md-right" for="password">Geslo<span class="required">*</span></label>
                                     <div class="col-md-6">
-                                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}" class="form-control" name="password" id="password" placeholder="Geslo" data-limit=255  autocomplete="off">
+                                        <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9]).{8,}" class="form-control" name="password" id="password" placeholder="Geslo" data-limit=255 required autocomplete="off">
                                         <span class="hint" id="minCharLenght">Geslo mora vsebovati najmanj 8 znakov!</span><br/>
                                         <span class="hint" id="bigChar">Vsebovati mora veliko črko [A-Ž],</span>
                                         <span class="hint" id="smallChar">malo črko [a-ž],</span>

@@ -92,7 +92,7 @@
                                         font-size: 1.3em;
                                         }
                                         a {
-                                        background: #007700;
+                                        background: #592f80;
                                         text-decoration: none;
                                         padding: 8px 15px;
                                         border-radius: 5px;
@@ -103,8 +103,8 @@
 
                                 <body>
                                 <div class="wrapper">
-                                    <p>Hvala da ste se vpisali na našo stran. Za aktivacijo vašega računa prosim, da kliknete na spodnjo povezavo</p>
-                                    <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '">Validacija računa!</a>
+                                    <p>Thank you for signing up on our site. Please click on the link below to verify your account:</p>
+                                    <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '">Verify Email!</a>
                                 </div>
                                 </body>
 

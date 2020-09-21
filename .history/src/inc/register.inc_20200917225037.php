@@ -72,50 +72,40 @@
                             echo $password . "  |  ";
                             echo $token;
 
-                            $to_email = "firemuc@gmail.com";
+                            $to_email = "email1@localhost";
                             $subject = "Aktivacija računa";
-                            $body = '
-                                <!DOCTYPE html>
-                                
-                                <html>
-
-                                    <head>
-                                        <title>Email validacija</title>
-                                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                                        <meta name="viewport" content="width=device-width, initial-scale=1">
-                                        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-                                        
-                                    <style tyoe="text/css">
-                                        .wrapper {
-                                        padding: 20px;
-                                        color: #444;
-                                        font-size: 1.3em;
-                                        }
-                                        a {
-                                        background: #007700;
-                                        text-decoration: none;
-                                        padding: 8px 15px;
-                                        border-radius: 5px;
-                                        color: #fff;
-                                        }
-                                    </style>
-                                    </head>
-
-                                <body>
-                                <div class="wrapper">
-                                    <p>Hvala da ste se vpisali na našo stran. Za aktivacijo vašega računa prosim, da kliknete na spodnjo povezavo</p>
-                                    <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '">Validacija računa!</a>
-                                </div>
-                                </body>
-
-                                </html>
-                            ';
-                            $headers = "MIME-Version: 1.0" . "\r\n";
-                            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-                                
-                            // More headers
-                            $headers .= 'From: <email1@localhost>' . "\r\n";
-
+                            $body = '<!DOCTYPE html>
+                            <html lang="en">
+                        
+                            <head>
+                              <meta charset="UTF-8">
+                              <title>Test mail</title>
+                              <style>
+                                .wrapper {
+                                  padding: 20px;
+                                  color: #444;
+                                  font-size: 1.3em;
+                                }
+                                a {
+                                  background: #592f80;
+                                  text-decoration: none;
+                                  padding: 8px 15px;
+                                  border-radius: 5px;
+                                  color: #fff;
+                                }
+                              </style>
+                            </head>
+                        
+                            <body>
+                              <div class="wrapper">
+                                <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
+                                <a href="http://localhost/felinae/index.php?page=verify.&token=' . $token . '">Verify Email!</a>
+                              </div>
+                            </body>
+                        
+                            </html>';;
+                            $headers = "From: sender\'s email";
+                            
                             if (mail($to_email, $subject, $body, $headers)) {
                                 echo "Email successfully sent to $to_email...";
                             } else {

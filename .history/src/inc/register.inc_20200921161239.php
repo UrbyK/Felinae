@@ -72,7 +72,7 @@
                             echo $password . "  |  ";
                             echo $token;
 
-                            $to_email = "firemuc@gmail.com";
+                            $to_email = "email1@localhost";
                             $subject = "Aktivacija računa";
                             $body = '
                                 <!DOCTYPE html>

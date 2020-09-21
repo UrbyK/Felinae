@@ -14,7 +14,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
                     
-                <style tyoe="text/css">
+                <style>
                     .wrapper {
                     padding: 20px;
                     color: #444;
