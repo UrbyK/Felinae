@@ -47,7 +47,7 @@
                                 <span class="discount">-<?=$product['discount']?>%</span><br/>
                                 <span class="retail-price price"><?=$retail_price?>&euro;</span>
                             </li>
-                            <li><?=date('j.n', strtotime($product['startsAt']))?> - <?=date('j.n', strtotime($product['endsAt']))?></li>
+                            <li class="sales-date"><?=date('j.n', strtotime($product['startsAt']))?> - <?=date('j.n', strtotime($product['endsAt']))?></li>
                         <?php else: ?>
                             <li><span class="price"><?=$retail_price?>&euro;</span></li>
                         <?php endif; ?>
