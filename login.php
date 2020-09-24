@@ -1,6 +1,7 @@
 <?=template_header("Login")?>
 
 <div class="container">
+    
     <div class="my-form">
         <div class="row justify-content-center">
             <div class="col-sm-8">
@@ -9,6 +10,17 @@
                         <h1 class="card-title">Prijava</h1>
                     </div><!-- card-title -->
                     <div class="card-body">
+                    <?php 
+                        if(isset($_GET['status'])){
+                            echo'<div style="text-align: center">';
+                            if($_GET['status'] == 'verify_email'){
+                                echo '<h4 style="color: red;">Prosim preverite vaš email za aktivacijo računa!</h4>';
+                            } elseif($_GET['status'] == 'verified'){
+                                echo '<h4 style="color: green;">Račun vspešno aktiviran</h4>';
+                            }
+                            echo '</div>';
+                        }
+                    ?>
                         <form method="post" action="./index.php?page=src/inc/login.inc" class="content">
 
                             <div class="form-group row">
