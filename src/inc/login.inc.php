@@ -14,21 +14,27 @@
             $stmt = $pdo->prepare($sql);
             $stmt->execute([$user, $user]);
             
-            if($stmt->rowCount() == 1){
+            if($stmt->rowCount() == 1) {
                 $acc = $stmt->fetch();
-                if(password_verify($pass, $acc['password'])){
-                    $_SESSION['user_id'] = $acc['id'];
-                    $_SESSION['loggedin'] = true;
-                    if($acc['admin'] == 1){
-                        $_SESSION['admin'] = true;
+                
+                if($acc['active']!= 1) {
+                    header('Location: ./index.php?page=login&status=verify_email');
+                    exit;
+                } else {
+                    if(password_verify($pass, $acc['password'])){
+                        $_SESSION['user_id'] = $acc['id'];
+                        $_SESSION['loggedin'] = true;
+                        if($acc['admin'] == 1){
+                            $_SESSION['admin'] = true;
+                        }
+
+                        $loginDateTime = date('y-m-d H:i:s', time());
+                        $query = "UPDATE account SET lastLogin = ? WHERE id = ?";
+                        $pdo->prepare($query)->execute([$loginDateTime, $acc['id']]);
+
+                        header("Location: ./index.php");
+                        die();
                     }
-
-                    $loginDateTime = date('y-m-d H:i:s', time());
-                    $query = "UPDATE account SET lastLogin = ? WHERE id = ?";
-                    $pdo->prepare($query)->execute([$loginDateTime, $acc['id']]);
-
-                    header("Location: ./index.php");
-                    die();
                 }
 
             }
