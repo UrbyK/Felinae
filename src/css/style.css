@@ -1,7 +1,20 @@
+:root {
+    --blue-color: #1b9bff;
+    --blue-hover-color: #198de6;
+    --green-color: #009900;
+    --green-hover-color: #00e600;
+    --red-color: #ff3b36;
+    --red-hover-color: #bf2b28;
+    --default-background-color: #fafafa;
+    --navigation-background-color: #353535;
+}
+
 @import url('http://fonts.googleapis.com/css?family=Oxygen+Mono');
 @import url('https://fonts.googleapis.com/css?family=Damion|Neucha|Pacifico|Yellowtail&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Text&family=Nunito&family=Overlock&family=Source+Sans+Pro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Love+Ya+Like+A+Sister&display=swap');
+
+
 
 *{
     text-decoration: none;
@@ -18,14 +31,14 @@ body{
     font-size: 16px;
     line-height: 1.125em;
     font-family: 'Nunito', 'Source Sans Pro', sans-serif;
-    background-color: #ececec;
+    background-color: var(--default-background-color);
     display: flex;
     flex-direction: column;
 }
 
 h1, h2, h3, h4, h5, h6{
     font-family: 'Overlock', 'Crimson Text', cursive, serif;
-    color: #1b9bff;
+    color: var(--blue-color);
     font-weight: 550;
     line-height: 1.125em;
 }
@@ -106,7 +119,7 @@ h6{
 }
 
 .dropdown-menu .dropdown-item{
-  color: #009900;
+  color: var(--green-color);
   font-size: 18px;
   font-weight: 700;
   border-bottom: 1px solid #888;
@@ -428,9 +441,13 @@ color: #1a5f94;
   height: 500px;
 }
 
+.products-preview:hover{
+  box-shadow: 2px 5px 10px red;
+}
+
 .products-preview-body{
   height: 200px;
-
+  margin-bottom: 15px;
 }
 
 .products-preview-body ul{
@@ -465,9 +482,9 @@ color: #1a5f94;
   font-size: 18px;
   color: #eee;
   font-weight: 900;
-  border: 2px solid #009900;
+  border: 2px solid var(--green-color);
   border-radius: 50%;
-  background-color: #009900;
+  background-color: var(--green-color);
   margin: 3px;
   padding: 5px;
   float: right;
@@ -610,7 +627,7 @@ li .discount{
 }
 
 .products-preview{
-  margin: 5px auto;
+  margin: 10px auto;
 }
 
 .measurements{
