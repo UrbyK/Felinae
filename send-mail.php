@@ -1,7 +1,7 @@
 <?php
     function send_email($to_email, $token){
         
-        
+        $email="email1@localhost";
         $subject = "Aktivacija računa";
         $body = '
             <!DOCTYPE html>
@@ -33,7 +33,7 @@
             <body>
             <div class="wrapper">
                 <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-                <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '">Verify Email!</a>
+                <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '&email=' . $to_email . '">Verify Email!</a>
             </div>
             </body>
 
@@ -43,9 +43,9 @@
         $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
             
         // More headers
-        $headers .= 'From: <email1@localhost>' . "\r\n";
+        $headers .= 'From: <no-reply@felinae.com>' . "\r\n";
 
-        if (mail($to_email, $subject, $body, $headers)) {
+        if (mail($email, $subject, $body, $headers)) {
             echo "Email successfully sent to $to_email...";
         } else {
             echo "Email sending failed...";
