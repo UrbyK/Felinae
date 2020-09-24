@@ -145,7 +145,7 @@ footer a {
 }
 
 footer a:hover {
-  color: #1b9bff;
+  color: var(--blue-hover-color);
   text-decoration: none;
 }
 
@@ -387,7 +387,7 @@ form input[type="number"] {
 }
 
 form input[type="submit"] {
-	background-color: #1b9bff;;
+	background-color: var(--blue-color);
 	border: 0;
 	color: #FFFFFF;
 	width: 100%;
@@ -401,7 +401,7 @@ form input[type="submit"] {
 }
 
 form input[type="submit"]:hover {
-	background-color: #1a5f94;;
+	background-color: var(--blue-hover-color);
 }
 
 
@@ -414,12 +414,12 @@ form input[type="submit"]:hover {
   font-size: 16px;
   /*padding-top: 15px;*/
   font-weight: bold;
-  color: #1b9bff;
+  color: var(--blue-color);
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .product-name:hover{
-color: #1a5f94;
+color: var(--blue-hover-color);
 }
 
 
@@ -541,7 +541,7 @@ input[type=submit]:disabled{
 	font-weight: normal;
 	margin: 0;
   padding: 20px 0 10px 0;
-  color: #1b9bff;
+  color: var(--blue-color);
   font-family:  'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
@@ -576,7 +576,7 @@ input[type=submit]:disabled{
 
 .product-info form input[type="submit"], 
 .card-btn form input[type="submit"] {
-	background-color: #1b9bff;;
+	background-color: var(--blue-color);
 	border: 0;
 	color: #FFFFFF;
 	width: 100%;
@@ -590,7 +590,7 @@ input[type=submit]:disabled{
 }
 .product-info form input[type="submit"]:hover, 
 .card-btn form input[type="submit"]:hover {
-	background-color: #1a5f94;;
+	background-color: var(--blue-hover-color);
 }
 /*
 .product-price .old-price{
@@ -619,7 +619,7 @@ li .discount{
 .sales-date{
   margin-bottom: 10px;
   font-size: 18px;
-  color: #009900;
+  color: var(--green-color);
 }
 
 .whitespace{
@@ -682,7 +682,7 @@ li .discount{
   content: "\2605";
   position: absolute;
   left: 0;
-  color: #009900;
+  color: var(--green-color);
 }
 
 .btn-submit{
@@ -693,7 +693,7 @@ li .discount{
   white-space: pre-wrap;
 }
 .checked{
-  color: #009900;
+  color: var(--green-color);
 }
 
 /*CART*/
@@ -719,7 +719,7 @@ li .discount{
 
 .cart table thead td {
 	padding: 30px 0;
-	border-bottom: 1px solid #009900;
+	border-bottom: 1px solid var(--green-color);
 }
 
 .cart table thead td:last-child{
@@ -728,7 +728,7 @@ li .discount{
 
 .cart table tbody td {
 	padding: 15px 0;
-  border-bottom: 1px solid #009900;
+  border-bottom: 1px solid var(--green-color);
 }
 
 .cart table tbody td:last-child {
@@ -751,13 +751,13 @@ li .discount{
 .cart table tbody td .remove {
   font-size: 14px;
   padding: 3px;
-  color: #990000;
+  color: var(--red-color);
   font-weight: 600;
 }
 
 .cart table tbody td .remove:hover {
   font-size: 16px;
-  color: #bc0101;
+  color: var(--red-hover-color);
   text-decoration: underline;
 }
 
@@ -797,7 +797,7 @@ text-align: right;
 }
 
 .cart .buttons input[type="submit"] {
-  background-color: #1b9bff;;
+  background-color: var(--blue-color);
 	border: 0;
   color: #FFFFFF;
   padding-top: 12px;
@@ -811,7 +811,7 @@ text-align: right;
 }
 
 .cart .buttons input[type="submit"]:hover {
-  background-color: #009900;
+  background-color: var(--green-hover-color);
   /*border: 3px solid #aaa;
   border-radius: 5px;*/
 }
@@ -832,7 +832,7 @@ text-align: right;
 }
 
 .wrapper-devider{
-  border-top: 2px solid #009900;
+  border-top: 2px solid var(--green-color);
 }
 
 /* PAGE NAVIGATION */
