@@ -5,7 +5,7 @@
     include_once('./src/inc/picture-upload.inc.php');
     require('./src/inc/xss_cleaner.inc.php');
     require_once('./products-form.php');
-    
+    require_once('./send-mail.php');
 
     /*function template_products($products) {
         require_once('./products-form.php');
