@@ -7,7 +7,7 @@
 
     else {
         $username = xss_cleaner($_POST['username']);
-        $email = xss_cleaner(htmlspecialchars($_POST['email']));
+        $email = htmlspecialchars($_POST['email']);
         $password = $_POST['password'];
         $confirm_password = $_POST['confirm_password'];
         $fname = xss_cleaner($_POST['fname']);
@@ -52,7 +52,7 @@
                             $password = password_hash($password, PASSWORD_DEFAULT);
 
                             $token = md5(rand(rand(0,1000), rand(0,1000)));
-                            /*$stmt = get_city($pdo, $city, $postalCode, $country);
+                            $stmt = get_city($pdo, $city, $postalCode, $country);
                             $count = $stmt->rowCount();
 
                             if($count < 1) {
@@ -61,18 +61,19 @@
                                 $city_id = $pdo->lastInsertId();
                             } elseif($count == 1) {
                                 $city_id = $stmt->fetch(PDO::FETCH_COLUMN);
-                                echo $city_id;
                             } else {
                                 header("Location: ./index.php?page=register&status=city");
                                 exit;
-                            }*/
+                            }
 
-                            echo "So far so good! ";
-                            echo $email . " ";
-                            echo $password . "  |  ";
-                            echo $token;
+                            echo $username ." | ". $password ." | ". $email ." | ". $fname ." | ". $lname ." | ". $phone . " | ". $address . " | ". $city_id . " | ". $token;
 
-                            $to_email = "firemuc@gmail.com";
+                            $query = "INSERT INTO account(username, email, password, firstName, lastName, phoneNumber, address, city_id, token)
+                                VALUES(?,?,?,?,?,?,?,?,?)";
+                            $stmt = $pdo->prepare($query);
+                            $stmt->execute([$username, $email, $password, $fname, $lname, $phone, $address, $city_id, $token]);
+
+                           /* $to_email = 'email1@localhost';
                             $subject = "Aktivacija računa";
                             $body = '
                                 <!DOCTYPE html>
@@ -104,7 +105,7 @@
                                 <body>
                                 <div class="wrapper">
                                     <p>Hvala da ste se vpisali na našo stran. Za aktivacijo vašega računa prosim, da kliknete na spodnjo povezavo</p>
-                                    <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '">Validacija računa!</a>
+                                    <a href="http://localhost/felinae/index.php?page=verify&token=' . $token . '&email=' . $email . '">Validacija računa!</a>
                                 </div>
                                 </body>
 
@@ -120,7 +121,11 @@
                                 echo "Email successfully sent to $to_email...";
                             } else {
                                 echo "Email sending failed...";
-                            }
+                            }*/
+
+                            send_email($email, $token);
+                            header('Location: ./index.php?login&status=verify_email');
+                            exit;
                                                         
                         }
 
@@ -132,7 +137,8 @@
             header("Location: ./index.php?page=register&status=empty");
             exit;
         }
-
+        header("Location: ./index.php?page=register&status=err");
+        exit;
 
     }
 
