@@ -4,8 +4,10 @@
     include_once('./src/inc/search-functions.php');
     include_once('./src/inc/picture-upload.inc.php');
     require('./src/inc/xss_cleaner.inc.php');
+    
     require_once('./products-form.php');
     require_once('./send-mail.php');
+    include_once('./pagination.php');
 
     /*function template_products($products) {
         require_once('./products-form.php');
@@ -18,6 +20,7 @@
     function template_footer() {
         include_once './footer.php';
     }
+    
 
     function user_login_status() {
         if(isset($_SESSION['loggedin']) && !empty($_SESSION['loggedin']) 
@@ -162,9 +165,6 @@
         $stmt->execute([date('Y-m-d H:i:s')]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
-    }
-
-
-    
+    }   
 
 ?>
