@@ -17,6 +17,8 @@
                                 echo '<h4 style="color: red;">Prosim preverite vaš email za aktivacijo računa!</h4>';
                             } elseif($_GET['status'] == 'verified'){
                                 echo '<h4 style="color: green;">Račun vspešno aktiviran</h4>';
+                            } elseif($_GET['status'] == 'not_exist'){
+                                echo '<h4 style="color: red;">Napaka pri verifikaciji, uporabniški račun neobstaja!</h4>';
                             }
                             echo '</div>';
                         }
