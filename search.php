@@ -3,7 +3,7 @@
     include_once('./functions.php');
     $pdo = pdo_connect_mysql();
     $search_item = "";
-    if(!empty($_GET['search']) && isset($_GET['search_btn'])){
+    if(!empty($_GET['search']) && isset($_GET['search'])){
 
         $search_item = $_GET['search'];
 
