@@ -92,7 +92,7 @@
 
                 <form method="GET" class="form-inline my-2 my-lg-0 search-area" action="./search.php">
                     <input class="form-control mr-sm-2" type="text" name="search" placeholder="Iskanje..">
-                    <button class="btn btn-outline-success my-2 my-sm-0" name="search_btn" type="submit">Išči</button>
+                   <!-- <button hidden class="btn btn-outline-success my-2 my-sm-0" name="search_btn" type="submit">Išči</button>-->
                 </form>
 
                 <?php $num_items_in_cart = isset($_SESSION['cart']) ? array_sum($_SESSION['cart']) : 0;?>
