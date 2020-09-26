@@ -131,7 +131,7 @@
         return $result;
     }   
         
-    function new_products(){
+    function new_products() {
         $pdo = pdo_connect_mysql();
         $query ="SELECT * FROM product ORDER BY publishedAt DESC LIMIT 6";
         $stmt = $pdo->prepare($query);
@@ -140,7 +140,7 @@
         return $result;
     }
 
-    function best_rated(){
+    function best_rated() {
         $pdo = pdo_connect_mysql();
         $query ="SELECT avg(rating), product_id FROM review GROUP BY product_id ORDER BY avg(rating) DESC LIMIT 6";
         $stmt = $pdo->prepare($query);
@@ -149,7 +149,7 @@
         return $result;
     }
 
-    function get_product($id){
+    function get_product($id) {
         $pdo = pdo_connect_mysql();
         $query ="SELECT * FROM product WHERE id = ?";
         $stmt = $pdo->prepare($query);
@@ -158,13 +158,22 @@
         return $result;
     }
 
-    function on_sale(){
+    function on_sale() {
         $pdo = pdo_connect_mysql();
         $query ="SELECT * FROM product WHERE ? BETWEEN startsAt AND endsAt;";
         $stmt = $pdo->prepare($query);
         $stmt->execute([date('Y-m-d H:i:s')]);
         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $result;
-    }   
+    }
+    
+    function all_catagory() {
+        $pdo = pdo_connect_mysql();
+        $query = "SELECT * FROM category";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute();
+        $cat = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $cat;
+    }
 
 ?>
