@@ -11,7 +11,11 @@
                     </div><!--card-header -->
                     <div class="card-body">
                         <form method="post" class="content" action="./index.php?page=src/inc/category-insert.inc" enctype="multipart/form-data">
-                            
+                        <div class="form-row">
+                                <div class="col float-right">
+                                    <button type="submit" name="Submit" class="btn btn-primary" id="cat_ins">Shrani</button>
+                                </div><!-- col-md-3 offset-md-2 float-right float-sm-right -->
+                            </div>
 
                             <div class="form-row">
                                 <div class="form-group col-md-5">
@@ -34,11 +38,7 @@
 
                             </div>
 
-                            <div class="form-row">
-                                <div class="col-md-3 offset-md-2 float-right float-sm-right">
-                                    <button type="submit" name="Submit" class="btn btn-primary" id="cat_ins">Shrani</button>
-                                </div><!-- col-md-3 offset-md-2 float-right float-sm-right -->
-                            </div>
+                            
 
                         </form>
                     </div><!-- card-body -->
