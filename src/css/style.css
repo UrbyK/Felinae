@@ -506,6 +506,7 @@ input[type=submit]:disabled{
 .image-top{
   height: 500px;
   position: absolute;
+  width: 95%;
 }
 
 .product-picture{
@@ -616,6 +617,22 @@ li .discount{
 
 .carousel-inner {
   margin: auto 0;
+  width: 100%;
+}
+/* image magnification*/
+
+.img-magnifier-container {
+  position: relative;
+}
+
+.img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  /*Set the size of the magnifier glass:*/
+  width: 100px;
+  height: 100px;
 }
 
 .sales-date{
