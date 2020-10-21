@@ -1,6 +1,4 @@
-<?php 
-    print_r($_SESSION);
-?>
+
 <?=template_header('Home')?>
 <div class="wrapper">
 <h1>Novi izdelki</h1>
@@ -34,6 +32,5 @@
         ?>
     </div>
 </div>
-
 
 <?=template_footer()?>
