@@ -1,6 +1,7 @@
 <?php 
     // check to make sure the id parameter is specified in the URL
     if (isset($_GET['id'])){
+        $pid=$_GET['id'];
         // prepare statement and execute, prevents SQL injection
         $stmt = $pdo->prepare('SELECT * FROM product WHERE id = ?');
         $stmt->execute([$_GET['id']]);
@@ -23,6 +24,15 @@
 ?>
 
 <?=template_header('Product')?>
+<?php if(user_login_status() && is_admin()): ?>
+<div clas="row">
+    <a href="./index.php?page=product-update&pid=<?=$pid?>" class="btn btn-primary float-right" role="button">Uredi</a>
+    
+    <!--<form method="GET" action="./index.php?page=product-update&pid=<?=$pid?>">
+        <input type="submit" value="Uredi" class="btn btn-secondary" >
+    </form>-->
+</div>
+<?php endif;?>
 
 <div class="row"> 
     <div class="col-12 col-sm-5 col-md-6 col-lg-5 col-xl-4">
@@ -30,9 +40,13 @@
             <div class="image-top">
                 <div class=" product-picture">
                     <ol class="carousel-indicators">
-                        <?php for($i = 0; $i < count($images); $i++): ?>
-                        <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
-                        <?php endfor; ?>
+                        <?php for($i = 0; $i < count($images); $i++): 
+                            if($i == 0): ?>
+                                <li data-target="#carouselIndicators" data-slide-to="<?=$i?>" class="active"></li>
+                            <?php else: ?>
+                                <li data-target="#carouselIndicators" data-slide-to="<?=$i?>"></li>
+                        <?php endif;
+                        endfor; ?>
                     </ol>
                     
                     <div id="carouselIndicators" class="carousel slide" data-ride="carousel">
@@ -40,11 +54,11 @@
                             <?php if($images):
                                 foreach($images as $key => $image): 
                                     if($key === array_key_first($images)):?>
-                                    <div class="carousel-item active">
+                                    <div class="carousel-item active img-magnifier-container">
                                     <?php else: ?>
                                     <div class="carousel-item">
                                     <?php endif; ?>
-                                        <img class="d-block w-100" src="<?=$image['image']?>" alt="<?=$image['caption']?>">
+                                        <img id="image-<?=$image['id']?>" class="d-block w-100 h-100" src="<?=$image['image']?>" alt="<?=$image['caption']?>">
                                     </div><!-- carousel-item -->
                                 <?php endforeach;
                                 else: ?>
@@ -102,10 +116,9 @@
 
             <!-- Description of product -->
             <div class="container">
-                <div class="summary">
-                    <h2 class="segmant-name">Povzetek</h2>
-                    <hr class="devider">
-                    <?=$product['summary']?>
+                <h2 class="segmant-name">Povzetek</h2>
+                <hr class="devider">
+                <div class="summary whitespace"><?=$product['summary']?></div><!-- summary -->
                     <p>                
                         <ul class="measurements">
                             <?php if(!empty($product['weight'])): ?><li>Teža: <?=$product['weight']?>kg</li><?php endif; ?>
@@ -114,8 +127,6 @@
                             <?php if(!empty($product['depth'])): ?><li>Višina: <?=$product['depth']?>cm</li><?php endif; ?>
                         </ul>
                     </p>
-
-                </div><!-- summary -->
             </div><!-- container -->
             
             <br>
@@ -130,9 +141,11 @@
 
 </div><!-- row -->
 
+
 <h1>Komentarji</h1>
 <hr class="page-division"/>
 <div class="row">
+    <?php if(user_login_status()): ?>
     <div class="col-12">
         <div class="form-group shadow-textarea">
             <form method="post" action="./index.php?page=src/inc/review-insert.inc">
@@ -162,6 +175,13 @@
             </form>
         </div><!-- form-group shadow-textarea -->
     </div><!-- col-12 -->
+    <?php else: ?>
+    <div class="col-12 col-sm-6 card">
+        <div class="card-body">
+            Za možnost komentiranja se prosim vpišite v svoj račun.
+        </div>
+    </div>
+    <?php endif; ?>
 </div><!-- row -->
 
 <div class="row">
@@ -201,4 +221,80 @@
             $('#charNum').text('Na voljo je še: ' + (255 - len) + ' znakov.');
         }
     };
+</script>
+
+<script>
+    function magnify(imgID, zoom) {
+    var img, glass, w, h, bw;
+    img = document.getElementById(imgID);
+    console.log(img);
+    /* Create magnifier glass: */
+    glass = document.createElement("DIV");
+    glass.setAttribute("class", "img-magnifier-glass");
+  
+    /* Insert magnifier glass: */
+    img.parentElement.insertBefore(glass, img);
+  
+    /* Set background properties for the magnifier glass: */
+    glass.style.backgroundImage = "url('" + img.src + "')";
+    glass.style.backgroundRepeat = "no-repeat";
+    glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+    bw = 3;
+    w = glass.offsetWidth / 2;
+    h = glass.offsetHeight / 2;
+  
+    /* Execute a function when someone moves the magnifier glass over the image: */
+    glass.addEventListener("mousemove", moveMagnifier);
+    img.addEventListener("mousemove", moveMagnifier);
+  
+    /*and also for touch screens:*/
+    glass.addEventListener("touchmove", moveMagnifier);
+    img.addEventListener("touchmove", moveMagnifier);
+    function moveMagnifier(e) {
+      var pos, x, y;
+      /* Prevent any other actions that may occur when moving over the image */
+      e.preventDefault();
+      /* Get the cursor's x and y positions: */
+      pos = getCursorPos(e);
+      x = pos.x;
+      y = pos.y;
+      /* Prevent the magnifier glass from being positioned outside the image: */
+      if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+      if (x < w / zoom) {x = w / zoom;}
+      if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+      if (y < h / zoom) {y = h / zoom;}
+      /* Set the position of the magnifier glass: */
+      glass.style.left = (x - w) + "px";
+      glass.style.top = (y - h) + "px";
+      /* Display what the magnifier glass "sees": */
+      glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+    }
+  
+    function getCursorPos(e) {
+      var a, x = 0, y = 0;
+      e = e || window.event;
+      /* Get the x and y positions of the image: */
+      a = img.getBoundingClientRect();
+      /* Calculate the cursor's x and y coordinates, relative to the image: */
+      x = e.pageX - a.left;
+      y = e.pageY - a.top;
+      /* Consider any page scrolling: */
+      x = x - window.pageXOffset;
+      y = y - window.pageYOffset;
+      return {x : x, y : y};
+    }
+  }
+
+</script>
+<script>
+  $('#carouselIndicators').on('slid.bs.carousel', function () {
+    var activeEle = document.querySelector('.carousel-item.active img');
+        console.log(activeEle.getAttribute('id'));
+        magnify(activeEle, 2);
+    })
+    var activeEle = document.querySelector('.carousel-item.active img');
+        console.log(activeEle.getAttribute('id'));
+
+        magnify(activeEle,3);
+
 </script>
